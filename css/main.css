@@ -1,0 +1,372 @@
+@font-face {
+	font-family: 'Font'; 
+	src: url(../fonts/Zametka.otf); 
+}
+body {
+  margin: 0;
+  overflow: hidden; /* Скрыть прокрутку */
+  background: repeating-conic-gradient(#90a298 0% 3%, #c6dece 3% 6%);
+  background-size: cover;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Высота на весь экран */
+  
+}
+
+.falling-image {
+  position: absolute;
+  width: 50px; /* Ширина картинки */
+  opacity: 1; /* Начальная прозрачность */
+}
+.amNyamImg{
+  width: 100px;
+  
+}
+.amNyam{
+  position: absolute;
+  bottom: 0; /* Начальная позиция по Y */
+  left: 0; /* Начальная позиция по X */
+  z-index: 2;
+}
+.score{
+  margin-top: 10px;
+  margin-right: 10px;
+  color: #9f0f31;
+  font-size: 30px;
+  font-family: Font;
+}
+
+.loss{
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.heart{
+  width: 40px;
+}
+.topp{
+  display: flex;
+  justify-content: space-between;
+}
+.non{
+  display: none;
+}
+.fail{
+  
+  position: absolute;
+  opacity: 1;
+  top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%);
+    
+}
+.box{
+  position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: repeating-conic-gradient(#525c56 0% 3%, #76857b 3% 6%);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.failImg{
+  width: 700px;
+  background-color: #385082;
+}
+.failTxt{
+  position: absolute;
+  top: 35%; /* Центрируем по вертикали */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Font;
+  font-size: 45px;
+}
+.failBtn{
+  font-family: Font;
+  background-color: rgb(31, 107, 20);
+  z-index: 3;
+  position: absolute;
+  top: 65%; 
+  left: 30%; 
+
+}
+
+
+
+
+.failTxt {
+  font-size: 48px;
+  color: #bdc3c7; /* Серебряный цвет текста */
+  text-shadow: 
+      1px 1px 0 #fff, 
+      2px 2px 0 #bdc3c7, 
+      3px 3px 0 rgba(255, 255, 255, 0.5); /* Эффект снега */
+  animation: sparkle 1.5s infinite alternate; /* Анимация мерцания */
+}
+
+@keyframes sparkle {
+  0% {
+      text-shadow: 
+          1px 1px 0 #fff, 
+          2px 2px 0 #bdc3c7, 
+          3px 3px 0 rgba(255, 255, 255, 0.5);
+  }
+  100% {
+      text-shadow: 
+          2px 2px 0 #fff, 
+          4px 4px 0 #bdc3c7, 
+          6px 6px 0 rgba(255, 255, 255, 0.7);
+  }
+}
+
+.ss{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.sound{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.endTxt{
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  font-family: Font;
+  font-size: 38px;
+  color: #9f0f31;
+}
+.startTxt{
+  display: flex;
+  justify-content: center;
+  font-family: Font;
+  color:#9f0f31;
+  font-size: 35px;
+  
+ 
+}
+
+
+
+.lightrope {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  margin: -15px 0 0 0;
+  padding: 0;
+  pointer-events: none;
+  width: 100%;
+}
+
+.lightrope li {
+  position: relative;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 12px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 20px;
+  display: inline-block;
+  background: #00f7a5;
+  box-shadow: 0px 4.66667px 24px 3px #00f7a5;
+  -webkit-animation-name: flash-1;
+  animation-name: flash-1;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+.lightrope li:nth-child(2n+1) {
+  background: cyan;
+  box-shadow: 0px 4.66667px 24px 3px rgba(0, 255, 255, 0.5);
+  -webkit-animation-name: flash-2;
+  animation-name: flash-2;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+}
+
+.lightrope li:nth-child(4n+2) {
+  background: #f70094;
+  box-shadow: 0px 4.66667px 24px 3px #f70094;
+  -webkit-animation-name: flash-3;
+  animation-name: flash-3;
+  -webkit-animation-duration: 1.1s;
+  animation-duration: 1.1s;
+}
+
+.lightrope li:nth-child(odd) {
+  -webkit-animation-duration: 1.8s;
+  animation-duration: 1.8s;
+}
+
+.lightrope li:nth-child(3n+1) {
+  -webkit-animation-duration: 1.4s;
+  animation-duration: 1.4s;
+}
+
+.lightrope li:before {
+  content: "";
+  position: absolute;
+  background: #222;
+  width: 10px;
+  height: 9.33333px;
+  border-radius: 3px;
+  top: -4.66667px;
+  left: 1px;
+}
+
+.lightrope li:after {
+  content: "";
+  top: -14px;
+  left: 9px;
+  position: absolute;
+  width: 52px;
+  height: 18.66667px;
+  border-bottom: solid #222 2px;
+  border-radius: 50%;
+}
+
+.lightrope li:last-child:after {
+  content: none;
+}
+
+.lightrope li:first-child {
+  margin-left: -40px;
+}
+
+@-webkit-keyframes flash-1 {
+  0%, 100% {
+    background: #00f7a5;
+    box-shadow: 0px 4.66667px 24px 3px #00f7a5;
+  }
+  50% {
+    background: rgba(0, 247, 165, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(0, 247, 165, 0.2);
+  }
+}
+
+@keyframes flash-1 {
+  0%, 100% {
+    background: #00f7a5;
+    box-shadow: 0px 4.66667px 24px 3px #00f7a5;
+  }
+  50% {
+    background: rgba(0, 247, 165, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(0, 247, 165, 0.2);
+  }
+}
+
+@-webkit-keyframes flash-2 {
+  0%, 100% {
+    background: cyan;
+    box-shadow: 0px 4.66667px 24px 3px cyan;
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes flash-2 {
+  0%, 100% {
+    background: cyan;
+    box-shadow: 0px 4.66667px 24px 3px cyan;
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@-webkit-keyframes flash-3 {
+  0%, 100% {
+    background: #f70094;
+    box-shadow: 0px 4.66667px 24px 3px #f70094;
+  }
+  50% {
+    background: rgba(247, 0, 148, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 0.2);
+  }
+}
+
+@keyframes flash-3 {
+  0%, 100% {
+    background: #f70094;
+    box-shadow: 0px 4.66667px 24px 3px #f70094;
+  }
+  50% {
+    background: rgba(247, 0, 148, 0.4);
+    box-shadow: 0px 4.66667px 24px 3px rgba(247, 0, 148, 0.2);
+  }
+}
+
+
+.startBtn{
+  display: flex;
+  justify-content: center;
+}
+
+.sBtn{
+  
+  margin-top: 8px;
+  background: linear-gradient(60deg, #f70094, cyan, #00f7a5);
+  width: 10%;
+  height: 40px;
+  text-align: center;
+  padding-top: 4px;
+  border: 0px;
+  border-radius: 35px;
+  font-family: Font;
+  color: rgb(143, 0, 86);
+  font-size: 20px;
+}
+.sBtn:hover{
+  transform: translateY(+7px);
+}    
+.sBtn:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
+.sBtn:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+  filter: blur(30px);
+}
+.fBtn{
+  margin-top: 8px;
+  background: linear-gradient(60deg, #f70094, cyan, #00f7a5);
+ 
+  height: 40px;
+  text-align: center;
+  padding-top: 4px;
+  border: 0px;
+  border-radius: 35px;
+  font-family: Font;
+  color: rgb(143, 0, 86);
+  font-size: 20px;
+}
+.fBtn:hover{
+  transform: translateY(+7px);
+} 
