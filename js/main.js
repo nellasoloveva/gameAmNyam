@@ -122,7 +122,7 @@ function createFallingImage() {
             body.style.backgroundImage = 'url(../gameAmNyam/img/776e87e7-464d-438a-be1f-6105deaa44c1.jpeg)'
             amNyamImg.style.width = '0px';
             
-            plusDon.pause();
+           
             endTxt.textContent = 'ура вы выйграли!!!';
         }
 
@@ -133,7 +133,7 @@ function createFallingImage() {
             scoreDisplay.textContent = "Счет: " + score;
             plusDon.play();
             setTimeout(function() {
-                plusDon.pause(); // Остановить воспроизведение
+                // Остановить воспроизведение
                 plusDon.currentTime = 0; // Сбросить время к началу
             }, 100); 
             isColliding = true; // Устанавливаем флаг, что произошло столкновени
